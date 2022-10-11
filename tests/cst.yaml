@@ -1,0 +1,15 @@
+schemaVersion: 2.0.0
+
+fileExistenceTests:
+  - name: "check main file exists"
+    path: /app/dist/main.js
+    shouldExist: true
+commandTests:
+  - name: "check node version"
+    command: "node"
+    args: ["-v"]
+    expectedOutput: ["v18.*"]
+metadataTest:
+    exposedPorts: ["3000"]
+    cmd: ["node", "dist/main.js"]
+    workdir: "/app"
